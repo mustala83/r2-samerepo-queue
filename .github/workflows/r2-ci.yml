@@ -1,0 +1,11 @@
+name: r2-ci
+on: [push, pull_request]
+jobs:
+  r2-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: slow policy check
+        run: |
+          sleep 45
+          bash ci/check.sh
