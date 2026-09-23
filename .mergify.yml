@@ -1,0 +1,14 @@
+queue_rules:
+  - name: default
+    queue_conditions:
+      - base=main
+    merge_conditions:
+      - check-success=r2-ci
+
+pull_request_rules:
+  - name: queue it
+    conditions:
+      - base=main
+    actions:
+      queue:
+        name: default
